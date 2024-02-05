@@ -16,15 +16,9 @@ public class Utils {
 	Set<String> uniqueSpecies = new HashSet<String>();
 
 	public Utils() {
-
-		try {
-			String path = "src/res/Animals.csv";
-			Scanner file = new Scanner(new File(path));
-
+		try (Scanner file = new Scanner(new File("src/res/Animals.csv"))) { //KI 1 Giogex 05/02/2024
 			while(file.hasNextLine()) {
-
 				String[] row = file.nextLine().split(",");
-
 				Animal a = new Animal(row[0], 
 						Integer.parseInt(row[1]),
 						row[2],
