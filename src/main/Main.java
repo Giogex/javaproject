@@ -1,3 +1,9 @@
+/*
+@author: Pnntn
+@Date: 05/02/2024
+@Description: Main class of the ecosystem.
+*/
+
 package main;
 
 import java.util.Scanner;

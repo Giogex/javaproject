@@ -1,3 +1,9 @@
+/*
+@author: Pnntn
+@Date: 05/02/2024
+@Description: Class that provide Animals to the ecosystem.
+*/
+
 package entities;
 
 public class Animal extends Entity{

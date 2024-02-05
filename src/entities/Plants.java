@@ -1,3 +1,9 @@
+/*
+@author: Giogex
+@Date: 05/02/2024
+@Description: Class that provide Plants to the ecosystem.
+*/
+
 package entities;
 
 public class Plants extends Entity{

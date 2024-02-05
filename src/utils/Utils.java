@@ -1,3 +1,9 @@
+/*
+@author: Pnntn
+@Date: 05/02/2024
+@Description: Utility class for the ecosystem.
+*/
+
 package utils;
 
 import java.io.File;
