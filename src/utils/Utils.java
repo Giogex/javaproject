@@ -1,5 +1,5 @@
 /*
-@author: Pnntn
+@author: Pnntn, Giogex
 @Date: 05/02/2024
 @Description: Utility class for the ecosystem.
 */
@@ -15,14 +15,20 @@ import java.util.Set;
 
 import entities.Animal;
 import entities.Entity;
+import entities.Plants;
 
 public class Utils {
 
 	ArrayList<Entity> entities = new ArrayList<Entity>();
 	Set<String> uniqueSpecies = new HashSet<String>();
+	Set<String> uniqueFamily = new HashSet<String>(); //Added For Plants Update - Giogex - 05/02/2023
 
-	public Utils() {
-		try (Scanner file = new Scanner(new File("src/res/Animals.csv"))) { //Modified for KI 1 Giogex 05/02/2024
+	public Utils() { //Modified for plant update now for every new .csv file a new method call can be added here - Giogex - 05/02/2023
+		animalData();
+		plantsData();
+	}
+	private void animalData(){ //New method for printing animals information - Giogex - 05/02/2023
+		try (Scanner file = new Scanner(new File("src/res/Animals.csv"))) { //Modified for KI 1 - Giogex -  05/02/2024
 			while(file.hasNextLine()) {
 				String[] row = file.nextLine().split(",");
 				Animal a = new Animal(row[0], 
@@ -39,6 +45,27 @@ public class Utils {
 		catch(FileNotFoundException e){
 			System.out.println(e);
 		}
+		catch(Exception e){ 	
+			System.out.println(e);
+		}
+	}
+
+	private void plantsData(){ //new method for printing plants information - Giogex - 05/02/2023
+		try (Scanner file = new Scanner(new File("src/res/Plants.csv"))){ //Modified for KI 1 - Giogex -05/02/2024
+			while(file.hasNextLine()){
+				String[] row = file.nextLine().split(",");
+				Plants p = new Plants(row[0],
+						row[1],
+						row[2],
+						Boolean.valueOf(row[3]),
+						Integer.valueOf(row[4]));
+						entities.add(p);
+						uniqueFamily.add(p.getFamily());
+			}
+		}
+		catch(FileNotFoundException e){
+			System.out.println(e);
+		}
 		catch(Exception e){
 			System.out.println(e);
 		}
@@ -50,6 +77,12 @@ public class Utils {
 			System.out.println(e);
 		}
 	}
+
+	public void printFamilies() {
+        for (String family : uniqueFamily) {
+            System.out.println(family);
+        }
+    }
 
 	public void predator() {
 
@@ -84,9 +117,4 @@ public class Utils {
 			}
 		}	
 	}
-
-	
-	
-	
-	
 }

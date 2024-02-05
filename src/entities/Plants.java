@@ -7,11 +7,12 @@
 package entities;
 
 public class Plants extends Entity{
+	private String type;
     private String family;
     private String name;
     private boolean carnivorous;
 
-    public Plants(String type, int age, String name, String family, boolean carnivorous){
+    public Plants(String type, String name, String family, boolean carnivorous, int age){
         super(name, age);
         this.type = type;
         this.name = name;
@@ -20,6 +21,14 @@ public class Plants extends Entity{
         this.age = age;
 
 }
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public String getFamily() {
 		return this.family;
@@ -48,4 +57,5 @@ public class Plants extends Entity{
 	public void setCarnivorous(boolean carnivorous) {
 		this.carnivorous = carnivorous;
 	}
+
 }

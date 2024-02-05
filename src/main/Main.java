@@ -8,6 +8,7 @@ package main;
 
 import java.util.Scanner;
 
+import utils.Map;
 import utils.Utils;
 
 public class Main {
@@ -24,6 +25,8 @@ public class Main {
 		//		 
 
 		Scanner input = new Scanner(System.in);
+		
+		Map m = new Map();
 
 		Utils u = new Utils();
 		String choice;
@@ -34,6 +37,8 @@ public class Main {
 				System.out.println("1. Specie\n"
 						+ "2. Prede\n"
 						+ "3. Predatori\n"
+						+ "4. Piante\n"
+						+ "5. Mapping\n"
 						+ "0. Esci");
 
 				choice = input.nextLine();
@@ -51,6 +56,14 @@ public class Main {
 
 				case "3":
 					u.predator();
+					break;
+
+				case "4":
+					u.printFamilies();
+					break;
+				
+				case "5":
+					m.showMap();
 					break;
 
 				case "0":
