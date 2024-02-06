@@ -26,7 +26,7 @@ public class Main {
 
 		Scanner input = new Scanner(System.in);
 		
-		Map m = new Map();
+		Map m = null;
 
 		Utils u = new Utils();
 		String choice;
@@ -63,15 +63,25 @@ public class Main {
 					break;
 				
 				case "5":
-					m.showMap();
+				if (m == null) {
+					m = new Map();
+					m.setVisible(true);
+				}
+				else if(!m.isVisible() && choice.equals("5")){
+					m.setVisible(true);
+				}
 					break;
 
 				case "0":
+				if (m != null && m.isVisible()) {
+					m.dispose();
+					m = null;
+				}
 					break Menu;
 				default:
 					System.out.println("Scelta non valida");
 				}
-			} while(true);
+			} while(!choice.equals("0"));
 
 		
 		input.close();
