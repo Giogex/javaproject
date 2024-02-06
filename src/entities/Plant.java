@@ -6,13 +6,13 @@
 
 package entities;
 
-public class Plants extends Entity{
+public class Plant extends Entity{
 	private String type;
     private String family;
     private String name;
     private boolean carnivorous;
 
-    public Plants(String type, String name, String family, boolean carnivorous, int age){
+    public Plant(String type, String name, String family, boolean carnivorous, int age){
         super(name, age);
         this.type = type;
         this.name = name;

@@ -13,9 +13,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import entities.Animal;
-import entities.Entity;
-import entities.Plants;
+import entities.*;
 
 public class Utils {
 
@@ -54,7 +52,7 @@ public class Utils {
 		try (Scanner file = new Scanner(new File("src/res/Plants.csv"))){ //Modified for KI 1 - Giogex -05/02/2024
 			while(file.hasNextLine()){
 				String[] row = file.nextLine().split(",");
-				Plants p = new Plants(row[0],
+				Plant p = new Plant(row[0],
 						row[1],
 						row[2],
 						Boolean.valueOf(row[3]),
