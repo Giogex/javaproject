@@ -38,7 +38,7 @@ public class Main {
 						+ "2. Prede\n"
 						+ "3. Predatori\n"
 						+ "4. Piante\n"
-						+ "5. Mapping\n"
+						+ "5. Mostra Mappa (Finestra separata Highly Experimental!)\n"
 						+ "0. Esci");
 
 				choice = input.nextLine();
