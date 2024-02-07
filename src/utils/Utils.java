@@ -35,7 +35,8 @@ public class Utils {
 						row[3],
 						Boolean.parseBoolean(row[4]),
 						Boolean.parseBoolean(row[5]),
-						Boolean.parseBoolean(row[6]));
+						Boolean.parseBoolean(row[6]),
+						Boolean.parseBoolean(row[7])); //added for nocturnal animals
 				entities.add(a);
 				uniqueSpecies.add(a.getSpecies());
 			}
