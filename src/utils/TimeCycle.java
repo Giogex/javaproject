@@ -1,24 +1,17 @@
-/* 
-@authors: Giogex
-@date: 07/02/2024
-@Description: Basic class for sending actual time information.
-*/
-
-
 package utils;
 
-import java.util.Timer;
 import java.time.LocalTime;
+import java.util.Timer;
 import java.util.TimerTask;
 
-public class TimeCicle {
+public class TimeCycle {
     public static void timeManager(){
         Integer[] hours = {6, 12, 18, 0};
-            
+
         Timer timer = new Timer();
-        
+
         LocalTime currentTime = LocalTime.now();
-        
+
         for (Integer hour : hours) {
             long delay = calculateDelay(hour, currentTime.getHour());
             timer.schedule(new MessageTask(hour), delay);
@@ -33,17 +26,17 @@ public class TimeCicle {
         if (delay <= 0) {
             delay += 24 * 3600000;
         }
-        
+
         return delay;
     }
 
     static class MessageTask extends TimerTask {
         private int hour;
-        
+
         public MessageTask(int hour) {
             this.hour = hour;
         }
-        
+
         @Override
         public void run() {
             String periodOfDay;
@@ -56,7 +49,7 @@ public class TimeCicle {
             } else {
                 periodOfDay = "night";
             }
-            
+
             System.out.println("It's " + hour + " o'clock and it's " + periodOfDay + ".");
         }
     }

@@ -1,89 +1,68 @@
-/*
-@author: Pnntn
-@Date: 05/02/2024
-@Description: Main class of the ecosystem.
-*/
-
 package main;
-
-import java.util.Scanner;
 
 import utils.Map;
 import utils.Utils;
 
+import java.util.Scanner;
+
 public class Main {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		//		 int random;
-		//		 
-		//		 for( int i = 0; i<100; i++) {
-		//			 
-		//			 random = (int) (Math.random() * 100);
-		//			 System.out.println(random);
-		//		 }
-		//		 
+        Scanner input = new Scanner(System.in);
+        Map map = null;
+        Utils utils = new Utils();
+        String choice;
 
-		Scanner input = new Scanner(System.in);
-		
-		Map m = null;
+        Menu:
+        do {
+            System.out.println("1. Specie\n"
+                    + "2. Prede\n"
+                    + "3. Predatori\n"
+                    + "4. Piante\n"
+                    + "5. Mostra Mappa (Finestra separata Highly Experimental!)\n"
+                    + "0. Esci");
 
-		Utils u = new Utils();
-		String choice;
+            choice = input.nextLine();
 
-		Menu:
-			do {
+            switch(choice) {
+                case "1":
+                    utils.printSpecies();
+                    break;
 
-				System.out.println("1. Specie\n"
-						+ "2. Prede\n"
-						+ "3. Predatori\n"
-						+ "4. Piante\n"
-						+ "5. Mostra Mappa (Finestra separata Highly Experimental!)\n"
-						+ "0. Esci");
+                case "2":
+                    utils.prey();
+                    break;
 
-				choice = input.nextLine();
+                case "3":
+                    utils.predator();
+                    break;
 
+                case "4":
+                    utils.printFamilies();
+                    break;
 
-				switch(choice) {
+                case "5":
+                    if (map == null) {
+                        map = new Map();
+                        map.setVisible(true);
+                    } else if (!map.isVisible() && choice.equals("5")) {
+                        map.setVisible(true);
+                    }
+                    break;
 
-				case "1":
-					u.printSpecies();
-					break;
+                case "0":
+                    if (map != null && map.isVisible()) {
+                        map.dispose();
+                        map = null;
+                    }
+                    break Menu;
 
-				case "2":
-					u.prey();
-					break;
+                default:
+                    System.out.println("Scelta non valida");
+            }
+        } while(!choice.equals("0"));
 
-				case "3":
-					u.predator();
-					break;
-
-				case "4":
-					u.printFamilies();
-					break;
-				
-				case "5":
-				if (m == null) {
-					m = new Map();
-					m.setVisible(true);
-				}
-				else if(!m.isVisible() && choice.equals("5")){
-					m.setVisible(true);
-				}
-					break;
-
-				case "0":
-				if (m != null && m.isVisible()) {
-					m.dispose();
-					m = null;
-				}
-					break Menu;
-				default:
-					System.out.println("Scelta non valida");
-				}
-			} while(!choice.equals("0"));
-
-		
-		input.close();
-	}
+        input.close();
+    }
 }

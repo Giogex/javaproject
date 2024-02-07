@@ -1,9 +1,3 @@
-/*
-@Author: Giogex
-@Date: 06/02/2024
-@Description: Map prototype for the Ecosystem.
- */
-
 package utils;
 
 import javax.swing.*;
